@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'transaction_files/new'
+  get 'transaction_files/create'
+  root "companies#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :companies, only: [:index] do
+    resources :sales, only: [:index]
+    resources :transaction_files, only: [:new, :create]
+  end
 end

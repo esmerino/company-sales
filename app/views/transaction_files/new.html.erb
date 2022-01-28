@@ -1,0 +1,9 @@
+<h1>Import sales</h1>
+
+<%= link_to("Sales", company_sales_path(@company)) %>
+
+
+<%= form_with model: @transaction_file, url: [@company, @transaction_file] do |form| %>
+  <%= form.file_field :file %>
+  <%= form.submit %>
+<% end -%>
